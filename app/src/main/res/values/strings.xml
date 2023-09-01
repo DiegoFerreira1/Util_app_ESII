@@ -4,4 +4,6 @@
     <string name="text_util2">A rede social diferente</string>
     <string name="text_versao1">v0.1 - Teste</string>
     <string name="text_equipe">Desenvolvido pela equipe Util App</string>
+    <string name="img_view">img_logo</string>
+
 </resources>
