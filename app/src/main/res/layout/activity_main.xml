@@ -7,5 +7,17 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/id_img_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img_logo"
+        android:contentDescription="@string/img_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="180dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

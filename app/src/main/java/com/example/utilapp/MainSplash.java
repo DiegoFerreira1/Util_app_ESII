@@ -39,7 +39,7 @@ public class MainSplash extends AppCompatActivity {
         txt_util2.setAnimation(bottom);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(MainSplash.this, MainLogin.class);
+            Intent intent = new Intent(MainSplash.this, MainActivity.class);
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);

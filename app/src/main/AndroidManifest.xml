@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UtilApp"
         tools:targetApi="31">
-        <activity
-            android:name=".MainLogin"
-            android:exported="false" />
+
         <activity
             android:name=".MainSplash"
             android:exported="true">
@@ -27,7 +25,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

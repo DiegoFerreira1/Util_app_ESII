@@ -5,10 +5,5 @@
     <string name="text_versao1">v0.1 - Teste</string>
     <string name="text_equipe">Desenvolvido pela equipe Util App</string>
     <string name="img_view">img_logo</string>
-    <string name="text_login">LOGIN</string>
-    <string name="email_hint">Email</string>
-    <string name="senha_hint">Senha</string>
-    <string name="text_button_entrar">ENTRAR</string>
-    <string name="text_cadastro">CADASTRAR-SE</string>
 
 </resources>
