@@ -10,5 +10,16 @@
     <string name="senha_hint">Senha</string>
     <string name="text_button_entrar">ENTRAR</string>
     <string name="text_cadastro">CADASTRAR-SE</string>
+    <string name="text_cadastro2">CADASTRO</string>
+    <string name="text_dados_cad">Informe seus dados para o cadastro</string>
+    <string name="text_button_concluir">CONCLUIR</string>
+    <string name="nome_hint">Nome de usuário</string>
+    <string name="senha_cad_hint">Informe sua senha</string>
+    <string name="senha2_cad_hint">Confirme sua senha</string>
+    <string name="address_hint">Endereço</string>
+    <string name="cep_hint">CEP (opcional)</string>
+
+
+
 
 </resources>
