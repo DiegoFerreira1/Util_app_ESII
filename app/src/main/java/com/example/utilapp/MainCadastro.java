@@ -2,11 +2,15 @@ package com.example.utilapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -14,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.utilapp.tools.FieldValidator;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,6 +54,8 @@ public class MainCadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_cadastro);
+        StrictMode.ThreadPolicy threadPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(threadPolicy);
 
         IniciarConponentes();
 
@@ -94,9 +101,11 @@ public class MainCadastro extends AppCompatActivity {
 
     private void CadastrarUsuario(View v) {
 
+        String nome = edit_nome.getText().toString();
         String email = edit_mail.getText().toString();
         String senha = edit_senha.getText().toString();
         String senha2 = edit_senha2.getText().toString();
+        String endereco = edit_endereco.getText().toString();
 
         if (senha.equals(senha2)) {
 
@@ -106,7 +115,7 @@ public class MainCadastro extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
 
-                        SalvarDadosUser();
+                        SalvarDadosUser(nome, email, senha, endereco);
 
                         Snackbar snackbar = Snackbar.make(v, mensagens[2], Snackbar.LENGTH_SHORT);
                         snackbar.setBackgroundTint(Color.WHITE);
@@ -171,45 +180,6 @@ public class MainCadastro extends AppCompatActivity {
     } // Esta é a chave de fechamento correta para o método CadastrarUsuarios
 
 
-    private void SalvarDadosUser(){
-
-        String nome = edit_nome.getText().toString();
-        String email = edit_mail.getText().toString();
-        String senha = edit_senha.getText().toString();
-        String senha2 = edit_senha2.getText().toString();
-        String endereco = edit_endereco.getText().toString();
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        Map<String, Object> usuarios = new HashMap<>();
-        usuarios.put("nome", nome);
-        usuarios.put("email", email);
-        usuarios.put("senha", senha);
-        usuarios.put("senha2", senha2);
-        usuarios.put("endereco", endereco);
-
-        usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        DocumentReference documentReference = db.collection("Usuarios").document(usuarioId);
-        documentReference.set(usuarios).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-                Log.d("db", "Sucesso ao salvar os dados");
-
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Log.d("db_error", "Erro ao salvar os dados" + e.toString());
-
-            }
-        });
-
-    }
-
     private void IniciarConponentes() {
         edit_nome = findViewById(R.id.edit_nome_cad);
         edit_mail = findViewById(R.id.edit_mail_cad);
@@ -218,6 +188,41 @@ public class MainCadastro extends AppCompatActivity {
         edit_endereco = findViewById(R.id.edit_address_cad);
         bt_concluir = findViewById(R.id.id_button_cad);
         ver_senha_cad = findViewById(R.id.id_ver_senha_cad);
+    }
+    private void SalvarDadosUser(String nome_usuario, String email, String senha, String endereco) {
+        try {
+            String jdbcUrl = "jdbc:postgresql://motty.db.elephantsql.com:5432/dskxvjps";
+            String username = "dskxvjps";
+            String password = "kw6tTe1l0LPWj0L0p71qOtk14selY4uF";
+
+            // Estabelecer a conexão com o banco de dados
+            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+
+            // Preparar uma declaração SQL para a inserção
+            String sql = "INSERT INTO usuarios (nome_usuario, email, senha, endereco) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, nome_usuario);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, senha);
+            preparedStatement.setString(4, endereco);
+
+            // Executar a inserção
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            // Verificar se a inserção foi bem-sucedida
+            if (rowsAffected > 0) {
+                Toast.makeText(MainCadastro.this, "Dados inseridos com sucesso.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainCadastro.this, "Falha ao inserir dados.", Toast.LENGTH_SHORT).show();
+            }
+
+            // Fechar a conexão com o banco de dados
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
     }
 
 
