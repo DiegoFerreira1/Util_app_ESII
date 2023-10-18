@@ -21,7 +21,18 @@
     <string name="text_ver_senha">Senha</string>
     <string name="text_credenciais">Salvar login</string>
     <string name="text_sair">SAIR</string>
-
+    <string name="perfil">PERFIL</string>
+    <string name="cursos">CURSOS</string>
+    <string name="reels">REELS</string>
+    <string name="usuario">Usuario</string>
+    <string name="meus_dados">Meus dados</string>
+    <string name="cursos_min">Cursos</string>
+    <string name="amigos">Amigos</string>
+    <string name="ver_todos">Ver todos</string>
+    <string name="email">Email</string>
+    <string name="endereco">Endereço</string>
+    <string name="curso_1">Curso 1</string>
+    <string name="curso_2">Curso 2</string>
 
 
 </resources>
