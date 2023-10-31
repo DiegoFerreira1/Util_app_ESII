@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/background"
         tools:context=".MainActivity">
 
@@ -18,12 +17,11 @@
             android:id="@+id/text_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp"
             android:text="@string/usuario"
             android:textSize="25sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +31,7 @@
         <View
             android:id="@+id/id_view_foto"
             style="@style/Container_foto"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_user" />
@@ -48,18 +46,16 @@
             android:src="@drawable/ic_person"
             />
 
-
-
         <!---View Principal-->
 
         <View
             android:id="@+id/id_view_principal"
             style="@style/Container_principal"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_view_foto" />
 
         <TextView
             android:id="@+id/text_dados"
@@ -234,84 +230,84 @@
 
         <!---Menu de views-->
 
-        <View
-            android:id="@+id/id_view_left"
-            style="@style/Container_left"
-            android:layout_marginStart="30dp"
+        <ImageView
+            android:id="@+id/id_button_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/id_view_center"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_view_principal" />
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal" />
 
-
-        <View
-            android:id="@+id/id_view_center"
-            style="@style/Container_center"
-            android:layout_marginStart="5dp"
+        <ImageView
+            android:id="@+id/id_button_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_user"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
+            app:layout_constraintStart_toEndOf="@id/id_button_home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/id_view_right"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/id_view_left"
-            app:layout_constraintTop_toBottomOf="@id/id_view_principal" />
+            />
 
-        <View
-            android:id="@+id/id_view_right"
-            style="@style/Container_right"
-            android:layout_marginStart="5dp"
+        <ImageView
+            android:id="@+id/id_button_courses"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_courses"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
+            app:layout_constraintStart_toEndOf="@id/id_button_profile"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/id_button_logout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/id_view_center"
-            app:layout_constraintTop_toBottomOf="@id/id_view_principal" />
+            />
 
+        <ImageView
+            android:id="@+id/id_button_favorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
+            app:layout_constraintStart_toEndOf="@id/id_button_courses"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <ImageView
+            android:id="@+id/id_button_reels"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_reels"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
+            app:layout_constraintStart_toEndOf="@id/id_button_favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
         <ImageView
             android:id="@+id/id_button_logout"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="17dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_sair"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
+            app:layout_constraintStart_toEndOf="@id/id_button_reels"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.957"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/perfil"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/id_view_left"
-            app:layout_constraintEnd_toEndOf="@+id/id_view_left"
-            app:layout_constraintStart_toStartOf="@+id/id_view_left"
-            app:layout_constraintTop_toTopOf="@+id/id_view_left" />
+            />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/cursos"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/id_view_center"
-            app:layout_constraintEnd_toEndOf="@+id/id_view_center"
-            app:layout_constraintStart_toStartOf="@+id/id_view_center"
-            app:layout_constraintTop_toTopOf="@+id/id_view_center" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/reels"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/id_view_right"
-            app:layout_constraintEnd_toEndOf="@+id/id_view_right"
-            app:layout_constraintStart_toStartOf="@+id/id_view_right"
-            app:layout_constraintTop_toTopOf="@+id/id_view_right" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
