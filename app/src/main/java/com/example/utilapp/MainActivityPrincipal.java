@@ -24,13 +24,7 @@ public class MainActivityPrincipal extends AppCompatActivity {
 
         ic_sair= findViewById(R.id.id_button_logout);
 
-        Button buttonCursos = findViewById(R.id.id_button_cursos);
-        buttonCursos.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityPrincipal.this, mainCursos.class);
-                startActivity(intent);
-            }
-        });
+
 
         ic_sair.setOnClickListener(new View.OnClickListener() {
             @Override
