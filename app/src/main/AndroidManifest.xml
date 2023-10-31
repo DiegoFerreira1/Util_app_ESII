@@ -13,6 +13,9 @@
         android:theme="@style/Theme.UtilApp"
         tools:targetApi="31">
         <activity
+            android:name=".mainCursos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityPrincipal"
             android:exported="false" />
         <activity
