@@ -40,11 +40,13 @@
         <View
             android:id="@+id/id_view_principal"
             style="@style/Container_principal"
-            android:layout_marginBottom="60dp"
+            android:layout_width="410dp"
+            android:layout_height="454dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_view_foto"/>
+            app:layout_constraintTop_toBottomOf="@id/id_view_foto" />
 
         <ImageView
             android:id="@+id/id_view_design"
@@ -58,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/design"
+            android:text="DESIGN"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -97,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/m_sica"
+            android:text="MUSICA"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -116,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/t_i"
+            android:text="TI"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

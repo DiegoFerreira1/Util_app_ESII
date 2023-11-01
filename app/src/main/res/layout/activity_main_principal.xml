@@ -90,7 +90,7 @@
             android:layout_marginTop="13dp"
             android:layout_marginStart="10dp"
             android:padding="2dp"
-            android:text="@string/usuario"
+            android:text="Nome do Usuário"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/id_view_dados"
             app:layout_constraintTop_toTopOf="@+id/id_view_dados" />
