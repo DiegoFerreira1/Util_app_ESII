@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.utilapp.tools.FieldValidator;
@@ -32,9 +33,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -43,10 +46,11 @@ public class MainCadastro extends AppCompatActivity {
 
     private EditText edit_nome, edit_mail, edit_senha, edit_senha2, edit_endereco;
     private Button bt_concluir;
-
     private ImageView ver_senha_cad;
+    TextView textUserNome,textUserEndereco, textUserEmail, text_user;
 
     String[] mensagens = {"O botão foi clicado", "Preencha todos os campos", "Cadastro realizado com Sucesso"};
+
     String usuarioId;
 
 
@@ -58,6 +62,7 @@ public class MainCadastro extends AppCompatActivity {
         StrictMode.setThreadPolicy(threadPolicy);
 
         IniciarConponentes();
+
 
         bt_concluir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,25 +102,25 @@ public class MainCadastro extends AppCompatActivity {
             }
         });
 
-    }
+
+
+    }// Fim do OnCreate
 
     private void CadastrarUsuario(View v) {
 
-        String nome = edit_nome.getText().toString();
         String email = edit_mail.getText().toString();
         String senha = edit_senha.getText().toString();
         String senha2 = edit_senha2.getText().toString();
-        String endereco = edit_endereco.getText().toString();
 
         if (senha.equals(senha2)) {
-
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()) {
 
-                        SalvarDadosUser(nome, email, senha, endereco);
+                        salvarDadosUsuario();
+
 
                         Snackbar snackbar = Snackbar.make(v, mensagens[2], Snackbar.LENGTH_SHORT);
                         snackbar.setBackgroundTint(Color.WHITE);
@@ -143,7 +148,7 @@ public class MainCadastro extends AppCompatActivity {
                             String erro;
                             try {
 
-                                throw task.getException();
+                                throw Objects.requireNonNull(task.getException());
 
 
                             }catch (FirebaseAuthWeakPasswordException e) {
@@ -189,41 +194,40 @@ public class MainCadastro extends AppCompatActivity {
         bt_concluir = findViewById(R.id.id_button_cad);
         ver_senha_cad = findViewById(R.id.id_ver_senha_cad);
     }
-    private void SalvarDadosUser(String nome_usuario, String email, String senha, String endereco) {
-        try {
-            String jdbcUrl = "jdbc:postgresql://motty.db.elephantsql.com:5432/dskxvjps";
-            String username = "dskxvjps";
-            String password = "kw6tTe1l0LPWj0L0p71qOtk14selY4uF";
 
-            // Estabelecer a conexão com o banco de dados
-            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+    //Salvar dados no firestore
+    private void salvarDadosUsuario(){
+        String nome = edit_nome.getText().toString();
+        String email = edit_mail.getText().toString();
+        String senha = edit_senha.getText().toString();
+        String senha2 = edit_senha2.getText().toString();
+        String endereco = edit_endereco.getText().toString();
 
-            // Preparar uma declaração SQL para a inserção
-            String sql = "INSERT INTO usuarios (nome_usuario, email, senha, endereco) VALUES (?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, nome_usuario);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, senha);
-            preparedStatement.setString(4, endereco);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            // Executar a inserção
-            int rowsAffected = preparedStatement.executeUpdate();
+        Map<String, Object> usuarios = new HashMap<>();
+        usuarios.put("nome", nome);
+        usuarios.put("email", email);
+        usuarios.put("senha", senha);
+        usuarios.put("senha2", senha2);
+        usuarios.put("endereco", endereco);
 
-            // Verificar se a inserção foi bem-sucedida
-            if (rowsAffected > 0) {
-                Toast.makeText(MainCadastro.this, "Dados inseridos com sucesso.", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(MainCadastro.this, "Falha ao inserir dados.", Toast.LENGTH_SHORT).show();
-            }
+        usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-            // Fechar a conexão com o banco de dados
-            connection.close();
+        CollectionReference usuariosRef = db.collection("Usuarios");
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
-        }
+        usuariosRef.add(usuarios)
+                .addOnSuccessListener(documentReference -> {
+                    Log.d("db", "Sucesso ao salvar os dados!");
+
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("db", "Falha ao salvar os dados!");
+
+                });
+
     }
+
 
 
 }
