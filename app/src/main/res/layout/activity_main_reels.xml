@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        tools:context=".MainCursos">
+        tools:context=".MainReels">
 
         <TextView
             android:id="@+id/text_user"
@@ -36,6 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_user" />
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -55,96 +56,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_view_foto" />
 
-
         <ImageView
-            android:id="@+id/id_view_design"
+            android:id="@+id/id_view_insta"
             style="@style/Container_categoria"
             android:layout_marginTop="40dp"
             android:padding="10dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_design"
+            android:src="@drawable/ic_insta"
             app:layout_constraintTop_toTopOf="@+id/id_view_principal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/design"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_view_design"
-            />
-
-
         <ImageView
-            android:id="@+id/id_view_fotografia"
+            android:id="@+id/id_view_face"
             style="@style/Container_categoria"
             android:layout_marginTop="40dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            android:src="@drawable/ic_foto"
+            android:src="@drawable/ic_face"
             app:layout_constraintTop_toTopOf="@+id/id_view_principal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/fotografia"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/id_view_fotografia" />
 
         <ImageView
-            android:id="@+id/id_view_ti"
+            android:id="@+id/id_view_youtube"
             style="@style/Container_categoria"
             android:layout_marginTop="50dp"
             android:padding="10dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_ti"
-            app:layout_constraintTop_toBottomOf="@id/id_view_design" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/t_i"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_view_ti"
-            />
+            android:src="@drawable/ic_youtube"
+            app:layout_constraintTop_toBottomOf="@id/id_view_insta" />
 
         <ImageView
-            android:id="@+id/id_view_outros"
+            android:id="@+id/id_view_tiktok"
             style="@style/Container_categoria"
             android:layout_marginTop="50dp"
-            android:padding="10dp"
+            android:padding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            android:src="@drawable/ic_outros"
-            app:layout_constraintTop_toBottomOf="@+id/id_view_fotografia" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/outros"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/id_view_ti" />
+            android:src="@drawable/ic_tiktok"
+            app:layout_constraintTop_toBottomOf="@+id/id_view_face" />
+
 
         <!---Menu de views-->
 
         <ImageView
-            android:id="@+id/id_button_home_course"
+            android:id="@+id/id_button_home_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="15dp"
@@ -157,7 +114,7 @@
             android:contentDescription="@string/todo" />
 
         <ImageView
-            android:id="@+id/id_button_profile_course"
+            android:id="@+id/id_button_profile_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -165,12 +122,12 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_user"
             app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
-            app:layout_constraintStart_toEndOf="@id/id_button_home_course"
+            app:layout_constraintStart_toEndOf="@id/id_button_home_reels"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
         <ImageView
-            android:id="@+id/id_button_courses_course"
+            android:id="@+id/id_button_courses_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -178,12 +135,12 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_courses"
             app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
-            app:layout_constraintStart_toEndOf="@id/id_button_profile_course"
+            app:layout_constraintStart_toEndOf="@id/id_button_profile_reels"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
         <ImageView
-            android:id="@+id/id_button_favorite_course"
+            android:id="@+id/id_button_favorite_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -191,11 +148,11 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_favorite"
             app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
-            app:layout_constraintStart_toEndOf="@id/id_button_courses_course"
+            app:layout_constraintStart_toEndOf="@id/id_button_courses_reels"
             app:layout_constraintBottom_toBottomOf="parent"
             />
         <ImageView
-            android:id="@+id/id_button_reels_course"
+            android:id="@+id/id_button_reels_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -203,12 +160,12 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_reels"
             app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
-            app:layout_constraintStart_toEndOf="@id/id_button_favorite_course"
+            app:layout_constraintStart_toEndOf="@id/id_button_favorite_reels"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
         <ImageView
-            android:id="@+id/id_button_logout_course"
+            android:id="@+id/id_button_logout_reels"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -216,7 +173,7 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_sair"
             app:layout_constraintTop_toBottomOf="@+id/id_view_principal"
-            app:layout_constraintStart_toEndOf="@id/id_button_reels_course"
+            app:layout_constraintStart_toEndOf="@id/id_button_reels_reels"
             app:layout_constraintBottom_toBottomOf="parent"
 
             />

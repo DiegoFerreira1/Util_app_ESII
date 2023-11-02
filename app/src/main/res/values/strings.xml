@@ -33,6 +33,12 @@
     <string name="endereco">Endereço</string>
     <string name="curso_1">Curso 1</string>
     <string name="curso_2">Curso 2</string>
+    <string name="todo">TODO</string>
+    <string name="design">DESIGN</string>
+    <string name="fotografia">FOTOGRAFIA</string>
+    <string name="t_i">T.I</string>
+    <string name="outros">OUTROS</string>
+    <string name="nome_do_usu_rio">Nome do Usuário</string>
 
 
 </resources>

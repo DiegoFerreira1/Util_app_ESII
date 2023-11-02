@@ -13,7 +13,13 @@
         android:theme="@style/Theme.UtilApp"
         tools:targetApi="31">
         <activity
-            android:name=".mainCursos"
+            android:name=".MainProfile"
+            android:exported="false" />
+        <activity
+            android:name=".MainReels"
+            android:exported="false" />
+        <activity
+            android:name=".MainCursos"
             android:exported="false" />
         <activity
             android:name=".MainActivityPrincipal"
