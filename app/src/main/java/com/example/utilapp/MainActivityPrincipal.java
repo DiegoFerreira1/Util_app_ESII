@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,6 +24,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivityPrincipal extends AppCompatActivity {
 
@@ -88,7 +92,6 @@ public class MainActivityPrincipal extends AppCompatActivity {
         textUserEmail = findViewById(R.id.text_email_dados);
         textUserEndereco = findViewById(R.id.text_endereco_dados);
 
-
         ic_profile = findViewById(R.id.id_button_profile);
         ic_courses= findViewById(R.id.id_button_courses);
         ic_reels = findViewById(R.id.id_button_reels);
@@ -98,50 +101,39 @@ public class MainActivityPrincipal extends AppCompatActivity {
 
     }
 
+    //Start para recuperar os dados do usuario logado
     @Override
     protected void onStart() {
         super.onStart();
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        db.collection("Usuarios")
+                .whereEqualTo("email", email)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String documentoID = document.getId();
+                                String nomeUser = (String) document.getData().get("nome");
+                                String enderecoUser = (String) document.getData().get("endereco");
 
-        Log.d("FirestoreUser", email + usuarioID);
+                                textUserNome.setText(nomeUser);
+                                text_user.setText(nomeUser);
+                                textUserEndereco.setText(enderecoUser);
+                                textUserEmail.setText(email);
 
-        DocumentReference documentRef = db.collection("Usuarios").document(usuarioID);
-        documentRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                if (documentSnapshot != null && documentSnapshot.exists()) {
-                    // Dados do documento existem
-                    String nomeUser = documentSnapshot.getString("nome");
-                    String enderecoUser = documentSnapshot.getString("endereco");
-
-                    if (nomeUser != null && enderecoUser != null) {
-                        // Atualiza as TextViews com os dados recuperados
-                        textUserNome.setText(nomeUser);
-                        text_user.setText(nomeUser);
-                        textUserEndereco.setText(enderecoUser);
-                        textUserEmail.setText(email);
-
-                        Log.d("Firestore", "Dados recuperados: " + nomeUser + " - " + enderecoUser);
-                    } else {
-                        Log.d("Firestore", "Campos 'nome' ou 'endereco' estão nulos");
+                            }
+                        } else {
+                            Log.d("Firestore", "Documento não encontrado");
+                        }
                     }
-                } else {
-                    Log.d("Firestore", "Documento não encontrado");
-                }
-
-
-            }
-        });
-
-
-
-
-
-
-
+                });
     }
+
+
+
 }
