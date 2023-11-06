@@ -39,6 +39,11 @@
     <string name="t_i">T.I</string>
     <string name="outros">OUTROS</string>
     <string name="nome_do_usu_rio">Nome do Usuário</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="alterar_foto">Alterar foto</string>
+    <string name="listar_todos">Listar Todos</string>
+    <string name="descri_o">Descrição</string>
+    <string name="n_categoria">Nº Categoria</string>
 
 
 </resources>

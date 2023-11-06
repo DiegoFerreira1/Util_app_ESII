@@ -46,13 +46,26 @@
             android:src="@drawable/ic_person"
             />
 
+        <TextView
+            android:id="@+id/id_alterarFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/alterar_foto"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/id_view_principal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/id_view_foto" />
+
+
         <!---View Principal-->
 
         <View
             android:id="@+id/id_view_principal"
             style="@style/Container_principal"
-            android:layout_marginBottom="60dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/id_view_foto" />
@@ -146,6 +159,13 @@
 
         <!---Informações da view cursos inicio-->
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/id_recycleView_cursos"
+            style="@style/Container_dados"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="@+id/id_view_cursos"
+            app:layout_constraintTop_toTopOf="@+id/id_view_cursos"
+            />
         <TextView
             android:id="@+id/text_curso1"
             android:layout_width="wrap_content"
@@ -156,31 +176,9 @@
             android:text="@string/curso_1"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/id_view_cursos"
-            app:layout_constraintTop_toTopOf="@+id/id_view_cursos" />
+            app:layout_constraintTop_toTopOf="@+id/id_view_cursos"
+            />
 
-        <TextView
-            android:id="@+id/text_curso2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:padding="2dp"
-            android:text="@string/curso_2"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/id_view_cursos"
-            app:layout_constraintTop_toBottomOf="@id/text_curso1" />
-
-        <TextView
-            android:id="@+id/text_curso3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:padding="2dp"
-            android:text="Curso 3"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/id_view_cursos"
-            app:layout_constraintTop_toBottomOf="@id/text_curso2" />
 
         <!---Informações da view cursos final-->
 
@@ -306,8 +304,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
 
             />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
