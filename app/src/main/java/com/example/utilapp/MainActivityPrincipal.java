@@ -3,6 +3,8 @@ package com.example.utilapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +12,10 @@ import android.util.Log;
 import android.view.View;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.utilapp.tools.MeuAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,12 +40,14 @@ public class MainActivityPrincipal extends AppCompatActivity {
     private TextView textUserNome,textUserEndereco, textUserEmail, text_user;
 
 
+    public MainActivityPrincipal() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_principal);
-
         iniciarComponentes();
 
 
@@ -81,7 +87,6 @@ public class MainActivityPrincipal extends AppCompatActivity {
                 finish();
             }
         });
-
 
     }
 

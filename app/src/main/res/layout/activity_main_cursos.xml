@@ -141,6 +141,43 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@id/id_view_ti" />
 
+        <EditText
+            android:id="@+id/id_search_course"
+            style="@style/Container_dados"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/pesquisar"
+            android:padding="10dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_view_outros" />
+        <TextView
+            android:id="@+id/text_listar_cursos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/listar_todos"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_search_course" />
+
+        <ImageView
+            android:id="@+id/ic_button_search_course"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_search"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/id_search_course"
+            app:layout_constraintEnd_toEndOf="@+id/id_search_course"
+            app:layout_constraintTop_toTopOf="@+id/id_search_course" />
+
+
         <!---Menu de views-->
 
         <ImageView
@@ -226,6 +263,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.50" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

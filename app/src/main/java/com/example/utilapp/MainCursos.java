@@ -1,17 +1,22 @@
 package com.example.utilapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.utilapp.tools.MeuAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainCursos extends AppCompatActivity {
-    private ImageView ic_home,ic_perfil, ic_reels, ic_sair;
+    private ImageView ic_home,ic_perfil, ic_reels, ic_sair, ic_search;
+    private TextView text_listarCursos;
     FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +24,6 @@ public class MainCursos extends AppCompatActivity {
         setContentView(R.layout.activity_main_cursos);
 
         iniciarComponentes();
-
-
 
         // Navegação
         ic_home.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +72,8 @@ public class MainCursos extends AppCompatActivity {
         ic_perfil = findViewById(R.id.id_button_profile_course);
         ic_reels = findViewById(R.id.id_button_reels_course);
         ic_sair= findViewById(R.id.id_button_logout_course);
+        ic_search = findViewById(R.id.ic_button_search_course);
+        text_listarCursos = findViewById(R.id.text_listar_cursos);
 
         mAuth = FirebaseAuth.getInstance();
     }
