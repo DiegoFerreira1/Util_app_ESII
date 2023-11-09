@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".MainInsertCurso">
+
+        <TextView
+            android:id="@+id/id_text_util_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_util"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/id_text_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inserir_curso"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="90dp"
+            />
+
+        <TextView
+            android:id="@+id/id_text_cad_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/insira_as_informa_es_sobre_o_curso"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/id_text_curso"
+            />
+
+        <EditText
+            android:id="@+id/edit_nome_curso"
+            style="@style/Edit_Text_cad"
+            android:hint="@string/nome_do_curso"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_text_cad_curso"
+            android:layout_marginTop="50dp"
+            android:drawableEnd="@drawable/ic_person"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/edit_descricao"
+            style="@style/Edit_Text_cad"
+            android:hint="@string/desri_o"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_nome_curso"
+            android:layout_marginTop="20dp"
+            android:drawableEnd="@drawable/ic_email"
+            android:importantForAutofill="no" />
+
+
+        <EditText
+            android:id="@+id/edit_categoria"
+            style="@style/Edit_Text_cad"
+            android:hint="@string/informe_o_numero_da_categoria"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_descricao"
+            android:layout_marginTop="20dp"
+            android:importantForAutofill="no" />
+
+        <Spinner
+            android:id="@+id/id_spinnerCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_categoria" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/id_bt_curso"
+            style="@style/Button_concluir"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/id_bt_voltar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/id_bt_voltar"
+            style="@style/Button_voltar"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

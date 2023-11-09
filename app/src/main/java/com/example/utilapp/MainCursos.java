@@ -1,7 +1,6 @@
 package com.example.utilapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.utilapp.tools.MeuAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainCursos extends AppCompatActivity {
@@ -59,6 +57,15 @@ public class MainCursos extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 Intent intent = new Intent(MainCursos.this, MainLogin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        text_listarCursos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = new Intent(MainCursos.this, MainScroolCursos.class);
                 startActivity(intent);
                 finish();
             }

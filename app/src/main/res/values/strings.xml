@@ -44,6 +44,23 @@
     <string name="listar_todos">Listar Todos</string>
     <string name="descri_o">Descrição</string>
     <string name="n_categoria">Nº Categoria</string>
+    <string name="nome_curso">Nome_Curso</string>
+    <string name="_0">0</string>
+    <string name="voltar">Voltar</string>
+    <string name="novo_curso">Novo Curso</string>
+    <string name="inserir_curso">Inserir Curso</string>
+    <string name="insira_as_informa_es_sobre_o_curso">Insira as Informações sobre o curso</string>
+    <string name="informe_o_numero_da_categoria">Informe o numero da categoria</string>
+    <string name="nome_do_curso">Nome do curso</string>
+    <string name="desri_o">Desrição</string>
+
+    <string-array name="category">
+        <item>Design</item>
+        <item>Fotografia</item>
+        <item>Tecnologia</item>
+        <item>Outras</item>
+
+    </string-array>
 
 
 </resources>
